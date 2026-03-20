@@ -1,0 +1,238 @@
+/* 1. Reset e Configurações de Tela */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #e6edf3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden; /* Evita barra de rolagem lateral */
+}
+
+/* 2. O Card Principal (80% da tela) */
+.main-card {
+  width: 80vw; 
+  min-height: 80vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  align-items: center;     /* Centraliza o conteúdo horizontalmente */
+  text-align: center;
+  
+  /* Estética Black & Red */
+  background-image: linear-gradient(135deg, #2a0000 0%, #080808 65%);
+  background-color: #000000;
+  border: 1px solid #441111; 
+  border-radius: 20px;
+  padding: 40px; 
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9);
+  gap: 25px;
+}
+
+/* 3. Cabeçalho e Títulos */
+.profile-header h1 {
+  font-size: 2.2rem;
+  color: #f0f6fc;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.subtitle {
+  color: #b1bac4;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* 4. Badges (Etiquetas) */
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  background: #1a0505;
+  border: 2px solid #f80808e8;
+}
+
+.white { color: #ffffff; }
+.green { color: #3fb950; }
+.cyan { color: #1fdbd0; }
+
+/* 5. Divisores e Seções */
+.divider {
+  width: 60%; /* Linha elegante que não toca as bordas */
+  border: 0;
+  border-top: 1px solid #441111;
+  margin: 10px 0;
+}
+
+.content-section {
+  width: 100%;
+  max-width: 750px;
+}
+
+.content-section h2 {
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.content-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #d1d1d1;
+  margin-bottom: 10px;
+}
+
+strong {
+  color: #ff4444; /* Destaque em vermelho */
+}
+
+/* 6. Lista de Skills (Centralizada mas alinhada à esquerda) */
+.skills-list {
+  list-style-type: none;
+  display: inline-block; 
+  text-align: left;
+  margin-top: 10px;
+}
+
+.skills-list li {
+  margin-bottom: 10px;
+  color: #b1bac4;
+  font-size: 1.1rem;
+}
+
+.skills-list li::before {
+  content: "•";
+  color: #ff0000;
+  font-weight: bold;
+  display: inline-block; 
+  width: 1.2em;
+}
+
+/* 7. ÍCONES (Ajuste de Segurança contra "Ícones Gigantes") */
+.icon-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.icon-box {
+  background-color: #1a0505;
+  width: 65px;  /* Tamanho fixo da caixa */
+  height: 65px; /* Tamanho fixo da caixa */
+  border-radius: 12px;
+  border: 1px solid #441111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon-box img {
+  width: 40px;  /* Tamanho fixo da imagem */
+  height: 40px; /* Tamanho fixo da imagem */
+  object-fit: contain; /* Impede a imagem de esticar */
+  filter: grayscale(20%);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.icon-box:hover {
+  transform: translateY(-8px);
+  border-color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.icon-box:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* 8. Responsividade para Celular */
+@media (max-width: 768px) {
+  .main-card {
+    width: 95vw;
+    min-height: 90vh;
+    padding: 30px 20px;
+  }
+  
+  .profile-header h1 {
+    font-size: 1.6rem;
+  }
+  
+}
+/* Container que posiciona os botões no canto */
+.floating-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000; /* Garante que fique acima de tudo */
+}
+
+/* Estilo base dos botões */
+.float-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: #1a0505;
+  border: 1px solid #441111;
+  padding: 10px;
+  border-radius: 50px; /* Deixa arredondado */
+  transition: all 0.3s ease;
+  width: 50px;  /* Começa apenas como um círculo */
+  height: 50px;
+  overflow: hidden; /* Esconde o texto inicialmente */
+  white-space: nowrap;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.float-btn img {
+  width: 28px;
+  height: 28px;
+  min-width: 28px; /* Impede o ícone de encolher */
+}
+
+.float-btn span {
+  margin-left: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Efeito Hover: O botão "estica" para mostrar o nome */
+.float-btn:hover {
+  width: 150px; /* Aumenta a largura ao passar o mouse */
+  border-color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.float-btn:hover span {
+  opacity: 1;
+}
+
+/* Cores específicas no hover */
+.linkedin:hover { background-color: #0077b5; border-color: #fff; }
+.whatsapp:hover { background-color: #25d366; border-color: #fff; }
